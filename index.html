@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillBridge by Code Hustlers</title>
+  <meta name="description" content="SkillBridge by Code Hustlers: AI-powered workforce intelligence platform. Skill gap analysis, talent discovery, learning roadmaps." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M4 14 C4 8.5 8.5 4 14 4 C19.5 4 24 8.5 24 14" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M8 18 C8 15.2 10.7 13 14 13 C17.3 13 20 15.2 20 18" stroke="#06B6D4" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="14" cy="21" r="2.5" fill="#F59E0B"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">SkillBridge</span>
+        <span class="logo-by">by Code Hustlers</span>
+      </div>
+    </div>
+    <button class="sidebar-toggle" id="sidebarToggle" title="Toggle sidebar">&#9776;</button>
+  </div>
+  <div class="sidebar-label">MAIN</div>
+  <nav class="sidebar-nav">
+    <a href="#" class="nav-item active" data-tab="dashboard">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1" opacity=".5"/><rect x="1" y="9" width="6" height="6" rx="1" opacity=".5"/><rect x="9" y="9" width="6" height="6" rx="1" opacity=".5"/></svg></span>
+      <span>Dashboard</span>
+    </a>
+    <a href="#" class="nav-item" data-tab="skill-analyzer">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3l2 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      <span>Skill Analyzer</span><span class="nav-badge">AI</span>
+    </a>
+    <a href="#" class="nav-item" data-tab="gap-analysis">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 13L6 7l3 3 4-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>Gap Analysis</span>
+    </a>
+    <a href="#" class="nav-item" data-tab="roadmap">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L5 7l3 3 3-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="5" cy="7" r="1.5" fill="currentColor"/><circle cx="8" cy="10" r="1.5" fill="currentColor"/><circle cx="11" cy="5" r="1.5" fill="currentColor"/></svg></span>
+      <span>Learning Roadmap</span>
+    </a>
+    <a href="#" class="nav-item" data-tab="compilers">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 11l-3-3m0 0l-5 5-3-3 5-5m3 3l2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      <span>Compilers &amp; Labs</span><span class="nav-badge" style="background:#10B981;color:#fff">Code</span>
+    </a>
+    <a href="#" class="nav-item" data-tab="video-hub">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M6 14h4M7 6l3 1.5L7 9V6z" stroke="currentColor" stroke-width="1.2"/></svg></span>
+      <span>Learning &amp; Videos</span><span class="nav-badge" style="background:#EC4899;color:#fff">Free</span>
+    </a>
+    <a href="#" class="nav-item" data-tab="talent-discovery">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M1 14c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 8l1.5 1.5L16 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>Talent Discovery</span>
+    </a>
+    <a href="#" class="nav-item" data-tab="skill-trends">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 12c1.5-3.5 3-2 4.5-5s3.5 1.5 5-1.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 3h2v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>Skill Trends</span>
+    </a>
+    <a href="#" class="nav-item" data-tab="workforce-intel">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="10" width="3" height="5" rx="1" opacity=".5"/><rect x="6" y="7" width="3" height="8" rx="1" opacity=".7"/><rect x="11" y="2" width="4" height="13" rx="1"/></svg></span>
+      <span>Workforce Intel</span>
+    </a>
+    <a href="#" class="nav-item" data-tab="datasets">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><ellipse cx="8" cy="5" rx="6" ry="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 5v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V5" stroke="currentColor" stroke-width="1.5"/><path d="M2 9v3c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V9" stroke="currentColor" stroke-width="1.5"/></svg></span>
+      <span>Datasets</span>
+    </a>
+    <a href="#" class="nav-item" data-tab="methodology">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M7 2H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V7L7 2z" stroke="currentColor" stroke-width="1.5"/><path d="M7 2v5h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      <span>Methodology</span>
+    </a>
+    <a href="login.html" class="nav-item">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 7V4.5a3 3 0 016 0V7" stroke="currentColor" stroke-width="1.5"/></svg></span>
+      <span>Auth / Login</span><span class="nav-badge" style="background:var(--grad);color:#fff">Demo</span>
+    </a>
+  </nav>
+  <div class="sidebar-label">SUPPORT</div>
+  <nav class="sidebar-nav">
+    <a href="#" class="nav-item" data-tab="help">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M6 6c0-1.1.9-2 2-2s2 .9 2 2c0 1.1-.9 1.5-2 1.5v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r=".75" fill="currentColor"/></svg></span>
+      <span>Help &amp; Guide</span>
+    </a>
+    <a href="#" class="nav-item" data-tab="about">
+      <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      <span>About Project</span>
+    </a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="team-badge">
+      <div class="team-avatar">CH</div>
+      <div class="team-info">
+        <span class="team-name">SkillBridge</span>
+        <span class="team-event">by Code Hustlers · Build For Bharat 2.0</span>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ===== MAIN ===== -->
+<main class="main-content" id="mainContent">
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">&#9776;</button>
+      <div class="breadcrumb" id="breadcrumb">Dashboard</div>
+    </div>
+    <div class="topbar-right">
+      <div class="search-bar">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M10 10l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <input type="text" placeholder="Search skills, roles, employees..." id="globalSearch" />
+      </div>
+      <div class="topbar-chip" title="Live tech market intelligence from LinkedIn & Stack Overflow" onclick="showTab('skill-trends')">
+        <span class="chip-dot"></span>
+        <span>Market Live</span>
+      </div>
+      <div class="topbar-auth" id="topbarAuth">
+        <!-- Rendered by initAuth() -->
+      </div>
+    </div>
+  </header>
+
+  <div class="content-area">
+
+<!-- ===== DASHBOARD TAB ===== -->
+<section class="tab-content active" id="tab-dashboard">
+  <div class="page-header">
+    <div><h1 class="page-title">Universal Skill Gap &amp; Learning Dashboard</h1><p class="page-subtitle">Universal Skill Gap Analysis &middot; Interactive LaTeX &amp; Code Compilers &middot; Visual Waypoint Roadmaps &middot; Open to Everyone</p></div>
+    <div class="header-actions">
+      <button class="btn btn-secondary" onclick="showTab('skill-analyzer')">&#9881; Analyze Resume</button>
+      <button class="btn btn-primary" onclick="showTab('gap-analysis')">&#9654; Run Gap Analysis</button>
+    </div>
+  </div>
+    <!-- Live Market Pulse Ticker (LinkedIn & Stack Overflow) -->
+  <div class="market-pulse-ticker">
+    <div class="ticker-badge">LIVE MARKET PULSE</div>
+    <div class="ticker-items">
+      <div class="ticker-item"><span>LinkedIn Hiring Index:</span> <strong>142,850+ Open Roles</strong> <span class="ticker-trend-up">+14.2% MoM</span></div>
+      <div class="ticker-item"><span>Stack Overflow Top Rising:</span> <strong>LangChain &amp; PyTorch</strong> <span class="ticker-trend-up">+312% YoY</span></div>
+      <div class="ticker-item"><span>Median GenAI Salary:</span> <strong>₹28.5L   ₹45L LPA</strong></div>
+      <div class="ticker-item"><span>Upskill Cost Savings:</span> <strong>₹18.5L per hire</strong></div>
+    </div>
+    <button class="btn btn-secondary btn-chip" onclick="showTab('skill-trends')">Explore Market Jobs →</button>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-primary"><div class="kpi-value" id="kpi-employees">0</div><div class="kpi-label">Learners Evaluated</div><div class="kpi-trend kpi-up">+12 this month</div></div>
+    <div class="kpi-card kpi-success"><div class="kpi-value" id="kpi-readiness">0%</div><div class="kpi-label">AI Readiness</div><div class="kpi-trend kpi-up">+5% vs last quarter</div></div>
+    <div class="kpi-card kpi-warning"><div class="kpi-value" id="kpi-gaps">0</div><div class="kpi-label">Critical Skill Gaps</div><div class="kpi-trend kpi-down">Improving</div></div>
+    <div class="kpi-card kpi-info"><div class="kpi-value" id="kpi-transitions">0</div><div class="kpi-label">Upskilling Candidates</div><div class="kpi-trend kpi-up">Ready for transition</div></div>
+  </div>
+  <div class="dashboard-grid">
+    <div class="card card-wide">
+      <div class="card-header"><h2 class="card-title">Organizational Skill Heatmap</h2><select class="select-sm" onchange="renderHeatmap()"><option value="all">All Departments</option><option value="tech">Technology</option><option value="data">Data Science</option></select></div>
+      <div class="skill-heatmap" id="skillHeatmap"></div>
+      <div class="heatmap-legend">
+        <span class="legend-item"><span class="legend-dot dot-critical"></span>Critical (&lt;40%)</span>
+        <span class="legend-item"><span class="legend-dot dot-high"></span>High (40-60%)</span>
+        <span class="legend-item"><span class="legend-dot dot-medium"></span>Medium (60-75%)</span>
+        <span class="legend-item"><span class="legend-dot dot-low"></span>Low Gap (75-90%)</span>
+        <span class="legend-item"><span class="legend-dot dot-ok"></span>Met (&gt;90%)</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2 class="card-title">Top Critical Gaps</h2><span class="badge badge-danger">Needs Action</span></div>
+      <div class="gap-list" id="topGapsList"></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2 class="card-title">Peer Learners &amp; Skill Benchmarks</h2><button class="btn-link" onclick="showTab('talent-discovery')">View All &rarr;</button></div>
+      <div class="mobility-list" id="mobilityList"></div>
+    </div>
+    <div class="card card-wide">
+      <div class="card-header"><h2 class="card-title">Emerging Skill Demand (Illustrative Trend 2022 to 2024)</h2></div>
+      <canvas id="trendChart" height="200"></canvas>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2 class="card-title">Recent Analyses</h2></div>
+      <div class="recent-list">
+        <div class="recent-item"><div class="recent-avatar" style="background:#00C2A8">E</div><div class="recent-info"><span class="recent-name">E-101 &rarr; ML Engineer</span><span class="recent-meta">84% readiness &middot; 2 gaps</span></div><span class="badge badge-success">Strong</span></div>
+        <div class="recent-item"><div class="recent-avatar" style="background:#3B82F6">D</div><div class="recent-info"><span class="recent-name">E-204 &rarr; Data Scientist</span><span class="recent-meta">76% readiness &middot; 3 gaps</span></div><span class="badge badge-warning">Good</span></div>
+        <div class="recent-item"><div class="recent-avatar" style="background:#8B5CF6">B</div><div class="recent-info"><span class="recent-name">E-317 &rarr; Backend &rarr; ML</span><span class="recent-meta">69% readiness &middot; 4 gaps</span></div><span class="badge badge-info">Moderate</span></div>
+        <div class="recent-item"><div class="recent-avatar" style="background:#F59E0B">Q</div><div class="recent-info"><span class="recent-name">E-422 &rarr; QA &rarr; ML</span><span class="recent-meta">41% readiness &middot; 7 gaps</span></div><span class="badge badge-danger">Large Gap</span></div>
+      </div>
+    </div>
+    <div class="card pipeline-card">
+      <div class="card-header"><h2 class="card-title">8-Stage AI Pipeline</h2><span class="badge badge-success">Active</span></div>
+      <div class="pipeline-stages">
+        <div class="pipeline-stage completed"><div class="stage-dot"></div><span>Problem</span></div>
+        <div class="pipeline-connector completed"></div>
+        <div class="pipeline-stage completed"><div class="stage-dot"></div><span>Collect Data</span></div>
+        <div class="pipeline-connector completed"></div>
+        <div class="pipeline-stage completed"><div class="stage-dot"></div><span>Clean Data</span></div>
+        <div class="pipeline-connector completed"></div>
+        <div class="pipeline-stage completed"><div class="stage-dot"></div><span>Analyze</span></div>
+        <div class="pipeline-connector active-conn"></div>
+        <div class="pipeline-stage active-stage"><div class="stage-dot pulse"></div><span>Build AI</span></div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-stage"><div class="stage-dot"></div><span>Insight</span></div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-stage"><div class="stage-dot"></div><span>Product</span></div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-stage"><div class="stage-dot"></div><span>Impact</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILL ANALYZER TAB ===== -->
+<section class="tab-content" id="tab-skill-analyzer">
+  <div class="page-header">
+    <div><h1 class="page-title">AI Skill Analyzer</h1><p class="page-subtitle">Extract and normalize skills from resumes or job descriptions using NLP + LLM</p></div>
+  </div>
+    <!-- Interactive Demo Candidate Resumes -->
+  <div class="demo-resumes-container">
+    <div class="demo-resumes-header">
+      <div>
+        <div class="demo-resumes-title"><span>Test Prototype with Candidate Resumes</span></div>
+        <div class="demo-resumes-sub">Click any candidate below to instantly load their resume, set target transition, and run AI analysis</div>
+      </div>
+      <button class="btn btn-secondary btn-sm" onclick="openResumeModal()">View Formatted Resumes</button>
+    </div>
+    <div class="demo-resumes-grid" id="demoResumesGrid">
+      <!-- Populated by renderDemoResumes() in app.js -->
+    </div>
+  </div>
+
+  <div class="analyzer-grid">
+    <div class="card">
+      <div class="card-header"><h2 class="card-title">Input Text</h2><div class="input-tabs"><button class="input-tab-btn active" onclick="setInputMode('resume',this)">Resume</button><button class="input-tab-btn" onclick="setInputMode('jd',this)">Job Description</button></div></div>
+      <div class="quick-load-btns"><span class="ql-label">Quick load:</span><button class="btn-chip" onclick="loadSampleResume()">Sample Resume</button><button class="btn-chip" onclick="loadSampleJD()">Sample JD</button></div>
+      <textarea class="text-input" id="analyzerInput" rows="13" placeholder="Paste your resume or job description here...&#10;&#10;Example: Experienced software engineer with 4 years building ML models using Python, Scikit-learn, PyTorch. Deployed APIs with FastAPI and Docker on AWS. Strong SQL, Pandas, and data analysis skills."></textarea>
+      <div class="analyzer-controls">
+        <div class="form-group"><label>Compare against target role</label>
+          <select id="targetRole" class="select-field">
+            <option value="ml-engineer">Machine Learning Engineer</option>
+            <option value="data-scientist">Data Scientist</option>
+            <option value="mlops-engineer">MLOps Engineer</option>
+            <option value="data-engineer">Data Engineer</option>
+            <option value="ai-researcher">AI Researcher</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-full" id="analyzeBtn" onclick="runAnalysis()">&#9881; Analyze with AI</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2 class="card-title">Extracted Skills</h2><span class="badge badge-info" id="skillCountBadge">: </span></div>
+      <div class="skills-output" id="skillsOutput"><div class="empty-state"><p style="font-size:40px">&#9881;</p><p>Run analysis to extract skills</p></div></div>
+    </div>
+    <div class="card card-wide">
+      <div class="card-header"><h2 class="card-title">Skill Profile &amp; Role Match</h2><div id="overallMatchBadge"></div></div>
+      <div class="profile-output" id="profileOutput"><div class="empty-state"><p style="font-size:40px">&#9783;</p><p>Your complete skill profile will appear here after analysis</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GAP ANALYSIS TAB ===== -->
+<section class="tab-content" id="tab-gap-analysis">
+  <div class="page-header">
+    <div><h1 class="page-title">Skill Gap Analysis</h1><p class="page-subtitle">Weighted scoring: &Sigma; [Skill Importance &times; (Required  minus  Current Level)] &middot; Normalized to 0 to 100</p></div>
+    <div class="header-actions"><button class="btn btn-secondary" onclick="loadGapDemo()">Load Demo Profile</button></div>
+  </div>
+  <div class="gap-analysis-layout">
+    <div class="card">
+      <div class="card-header"><h2 class="card-title">Learner Profile</h2></div>
+      <div class="form-group"><label>Learner ID / Username</label><input type="text" class="input-field" id="employeeId" placeholder="e.g. E-101" /></div>
+      <div class="form-group"><label>Current Role</label>
+        <select class="select-field" id="currentRole"><option>Software Engineer</option><option>Data Analyst</option><option>Backend Engineer</option><option>QA Engineer</option><option>DevOps Engineer</option></select>
+      </div>
+      <div class="form-group"><label>Target Role</label>
+        <select class="select-field" id="gapTargetRole" onchange="renderSkillRatings()">
+          <option value="ml-engineer">Machine Learning Engineer</option>
+          <option value="data-scientist">Data Scientist</option>
+          <option value="mlops-engineer">MLOps Engineer</option>
+          <option value="data-engineer">Data Engineer</option>
+          <option value="ai-researcher">AI Researcher</option>
+        </select>
+      </div>
+      <div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:10px;margin-top:4px">Rate your current skill level (0 = None, 4 = Expert)</div>
+      <div class="skills-rating-grid" id="skillsRatingGrid"></div>
+      <button class="btn btn-primary btn-full" style="margin-top:16px" onclick="calculateGapScore()">&#9654; Calculate Gap Score</button>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-header"><h2 class="card-title">Gap Score Results</h2><div class="readiness-badge" id="readinessBadge">: </div></div>
+        <div class="gap-results" id="gapResults"><div class="empty-state"><p style="font-size:40px">&#9654;</p><p>Fill in profile and calculate gap score</p></div></div>
+      </div>
+      <div class="card" id="gapChartCard" style="display:none">
+        <div class="card-header"><h2 class="card-title">Skill Proficiency Chart</h2><p style="font-size:11px;color:var(--text3)">Blue bar = current &middot; Red line = required</p></div>
+        <div class="gap-bars" id="gapBars"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROADMAP TAB ===== -->
+<section class="tab-content" id="tab-roadmap">
+  <div class="page-header">
+    <div><h1 class="page-title">Personalized Learning Roadmap</h1><p class="page-subtitle">AI-generated upskilling plan based on skill dependencies, gap priority, and available time</p></div>
+    <div class="header-actions"><button class="btn btn-primary" onclick="exportRoadmap()">&#8595; Export Plan</button></div>
+  </div>
+  <!-- Interactive Learning Waypoints Flowchart & Dependency Graph -->
+  <div class="waypoint-hero-card">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div>
+        <div style="font-size:11px;font-weight:800;letter-spacing:.08em;color:#A78BFA;text-transform:uppercase;">Visual Career Roadmap</div>
+        <h2 style="font-size:22px;font-weight:900;color:var(--text);font-family:'Outfit',sans-serif;">Learning Waypoint Flowchart &amp; Dependency Graph</h2>
+        <p style="font-size:13px;color:var(--text2);margin-top:2px;">Click any waypoint node below to view step-by-step learning goals, training exercises, video lectures, and track your progress.</p>
+      </div>
+      <span class="badge badge-brand" id="waypointPctBadge">33% Waypoint Readiness</span>
+    </div>
+    <div class="waypoint-progress-bar-wrap">
+      <div class="waypoint-progress-fill" id="waypointProgressFill" style="width:33%;"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--text3);margin-top:6px;">
+      <span id="waypointProgressText">2 of 6 Waypoints Mastered (33% Complete)</span>
+      <span>Target: 100% Role Proficiency</span>
+    </div>
+  </div>
+
+  <div class="flowchart-container">
+    <div class="flowchart-steps" id="flowchartSteps">
+      <!-- Populated by renderWaypointsFlowchart() in app.js -->
+    </div>
+  </div>
+
+  <div class="waypoint-detail-card" id="waypointDetailCard">
+    <!-- Populated dynamically when clicking waypoints -->
+  </div>
+
+  <div class="card" style="padding:20px;margin-bottom:24px">
+    <div class="roadmap-form">
+      <div class="form-group"><label>Target Role</label>
+        <select class="select-field" id="roadmapRole" onchange="generateRoadmap()">
+          <option value="ml-engineer">Machine Learning Engineer</option>
+          <option value="data-scientist">Data Scientist</option>
+          <option value="mlops-engineer">MLOps Engineer</option>
+          <option value="data-engineer">Data Engineer</option>
+          <option value="ai-researcher">AI Researcher</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Current Level</label>
+        <select class="select-field" id="roadmapLevel" onchange="generateRoadmap()">
+          <option value="beginner">Beginner</option><option value="intermediate" selected>Intermediate</option><option value="advanced">Advanced</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Hours / Week</label>
+        <select class="select-field" id="roadmapHours" onchange="generateRoadmap()">
+          <option value="5">5 hours</option><option value="10" selected>10 hours</option><option value="20">20 hours</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="roadmap-container" id="roadmapContainer"></div>
+  <div class="card" style="margin-top:24px">
+    <div class="card-header"><h2 class="card-title">Recommended Capstone Project</h2><span class="badge badge-success">High Impact</span></div>
+    <div class="capstone-project" id="capstoneProject"></div>
+  </div>
+</section>
+
+
+<!-- ===== COMPILERS & CODE STUDIO TAB ===== -->
+<section class="tab-content" id="tab-compilers">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Compilers &amp; Interactive Code Studio</h1>
+      <p class="page-subtitle">Live in-browser LaTeX &amp; Overleaf document compiler, Python &amp; PyTorch sandbox, and SQL query playground</p>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-secondary" onclick="openInOverleaf()">Open in Overleaf</button>
+      <button class="btn btn-primary" onclick="downloadLatexFile()">Download Code File</button>
+    </div>
+  </div>
+
+  <!-- Mode Switcher -->
+  <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;align-items:center;">
+    <button class="editor-tab-btn compiler-mode-btn active" id="comp-tab-latex" onclick="switchCompilerTab('latex')">
+      LaTeX and Overleaf Document Studio
+    </button>
+    <button class="editor-tab-btn compiler-mode-btn" id="comp-tab-python" onclick="switchCompilerTab('python')">
+      Python and ML Code Sandbox
+    </button>
+    <button class="editor-tab-btn compiler-mode-btn" id="comp-tab-sql" onclick="switchCompilerTab('sql')">
+      SQL and Data Query Playground
+    </button>
+  </div>
+
+  <div class="compiler-grid">
+    <!-- Left: Source Code Editor -->
+    <div class="editor-card">
+      <div class="editor-toolbar">
+        <div class="editor-tabs" id="latexToolbarBtns">
+          <button class="editor-tab-btn active" onclick="loadLatexTemplate('cv')">ATS Tech CV</button>
+          <button class="editor-tab-btn" onclick="loadLatexTemplate('paper')">ML Research Paper</button>
+          <button class="editor-tab-btn" onclick="loadLatexTemplate('project')">Skill Audit Report</button>
+        </div>
+        <div class="editor-tabs" id="codeToolbarBtns" style="display:none;">
+          <span style="font-size:12px;font-weight:700;color:var(--text2);display:flex;align-items:center;gap:6px;">
+            <span style="color:#10B981;">●</span> Skill Verification Drill
+          </span>
+        </div>
+        <div class="editor-actions">
+          <button class="btn btn-sm btn-secondary" onclick="copyLatexCode()" title="Copy code to clipboard">Copy</button>
+          <button class="btn btn-sm btn-primary" id="compilerActionBtn" onclick="currentCompilerTab==='latex'?compileLatex():runTrainingCode()">
+            Run and Compile
+          </button>
+        </div>
+      </div>
+      <textarea class="code-editor-area" id="compilerCodeEditor" spellcheck="false" placeholder="Enter LaTeX, Python or SQL code here..."></textarea>
+    </div>
+
+    <!-- Right: Compilation Preview / Terminal Output -->
+    <div class="preview-card">
+      <div class="preview-toolbar">
+        <div class="preview-title">
+          <span>Live Output and Preview</span>
+          <span class="badge badge-success" style="font-size:10px;">Zero-Install Engine</span>
+        </div>
+        <div>
+          <button class="btn-link" onclick="currentCompilerTab==='latex'?openInOverleaf():runTrainingCode()" style="font-size:12px;">
+            Overleaf Sync &rarr;
+          </button>
+        </div>
+      </div>
+
+      <!-- LaTeX Rendered Document Preview -->
+      <div class="latex-render-pane" id="latexRenderPane">
+        <!-- Rendered by compileLatex() in app.js -->
+      </div>
+
+      <!-- Terminal Output for Python & SQL -->
+      <div class="terminal-output-pane" id="terminalOutputPane" style="display:none;">
+        <!-- Rendered by runTrainingCode() in app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- LaTeX & Tools Quick Cheatsheet -->
+  <div class="latex-cheatsheet-card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+      <h3 style="font-size:15px;font-weight:800;color:var(--text);font-family:'Outfit',sans-serif;">Essential LaTeX and Overleaf Syntax Cheatsheet</h3>
+      <span style="font-size:12px;color:var(--text3);">Standard packages supported: amsmath, geometry, hyperref, enumitem</span>
+    </div>
+    <div class="cheat-grid">
+      <div class="cheat-item">
+        <div class="cheat-title">Document Boilerplate</div>
+        <code class="cheat-code">\documentclass{article} ... \begin{document} ... \end{document}</code>
+      </div>
+      <div class="cheat-item">
+        <div class="cheat-title">Math &amp; Loss Functions</div>
+        <code class="cheat-code">\begin{equation} \mathcal{L} = \frac{1}{N}\sum (y - \hat{y})^2 \end{equation}</code>
+      </div>
+      <div class="cheat-item">
+        <div class="cheat-title">Greek Letters &amp; Vectors</div>
+        <code class="cheat-code">\alpha, \beta, \theta, \nabla f(x), \vec{P} \in \mathbb{R}^d</code>
+      </div>
+      <div class="cheat-item">
+        <div class="cheat-title">ATS Resume Formatting</div>
+        <code class="cheat-code">\section*{Technical Skills} \begin{itemize}[noitemsep] \item ...</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO & PLATFORMS HUB TAB ===== -->
+<section class="tab-content" id="tab-video-hub">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Free Learning &amp; Video Masterclasses Hub</h1>
+      <p class="page-subtitle">Curated video courses and free learning platforms specifically aligned with tech skill gaps</p>
+    </div>
+  </div>
+
+  <!-- Category Filter Bar -->
+  <div class="video-filter-bar">
+    <button class="btn-chip video-filter-btn active" onclick="filterVideos('all', this)">All Courses (12)</button>
+    <button class="btn-chip video-filter-btn" onclick="filterVideos('ml', this)">AI and PyTorch</button>
+    <button class="btn-chip video-filter-btn" onclick="filterVideos('latex', this)">LaTeX and Overleaf</button>
+    <button class="btn-chip video-filter-btn" onclick="filterVideos('python', this)">Python and CS50</button>
+    <button class="btn-chip video-filter-btn" onclick="filterVideos('math', this)">Math and 3Blue1Brown</button>
+    <button class="btn-chip video-filter-btn" onclick="filterVideos('sql', this)">SQL and Data</button>
+    <button class="btn-chip video-filter-btn" onclick="filterVideos('devops', this)">Docker and Cloud</button>
+  </div>
+
+  <!-- Video Cards Grid -->
+  <div class="video-grid" id="videoGrid">
+    <!-- Populated by renderVideoHub() in app.js -->
+  </div>
+
+  <!-- Free Platforms Directory -->
+  <div class="card card-wide" style="margin-top:28px;">
+    <div class="card-header">
+      <h2 class="card-title">Top 100% Free Learning Platforms for Self-Learners</h2>
+      <span class="badge badge-success">Open Access &middot; No Paywall</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:14px;margin-top:12px;">
+      <a href="https://www.freecodecamp.org" target="_blank" class="card" style="text-decoration:none;border-color:rgba(124,58,237,.3);padding:16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:6px;">[FREECODECAMP]</div>
+        <strong style="color:var(--text);font-size:14px;display:block;">freeCodeCamp</strong>
+        <p style="font-size:12px;color:var(--text3);margin-top:4px;">Full 300-hour coding certifications, Python, SQL, and Deep Learning for free.</p>
+      </a>
+      <a href="https://www.overleaf.com/learn" target="_blank" class="card" style="text-decoration:none;border-color:rgba(16,185,129,.3);padding:16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:6px;">[OVERLEAF]</div>
+        <strong style="color:var(--text);font-size:14px;display:block;">Overleaf Learn</strong>
+        <p style="font-size:12px;color:var(--text3);margin-top:4px;">Official interactive guides, templates, and documentation for LaTeX typesetting.</p>
+      </a>
+      <a href="https://www.youtube.com/@3blue1brown" target="_blank" class="card" style="text-decoration:none;border-color:rgba(6,182,212,.3);padding:16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:6px;">[3BLUE1BROWN]</div>
+        <strong style="color:var(--text);font-size:14px;display:block;">3Blue1Brown</strong>
+        <p style="font-size:12px;color:var(--text3);margin-top:4px;">World-renowned visual animations explaining Linear Algebra, Calculus, and Neural Nets.</p>
+      </a>
+      <a href="https://cs50.harvard.edu" target="_blank" class="card" style="text-decoration:none;border-color:rgba(239,68,68,.3);padding:16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:6px;">[HARVARD CS50]</div>
+        <strong style="color:var(--text);font-size:14px;display:block;">Harvard CS50</strong>
+        <p style="font-size:12px;color:var(--text3);margin-top:4px;">Harvard's legendary entry course covering computer science, Python, C, and web dev.</p>
+      </a>
+      <a href="https://www.kaggle.com/learn" target="_blank" class="card" style="text-decoration:none;border-color:rgba(245,158,11,.3);padding:16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:6px;">[KAGGLE LEARN]</div>
+        <strong style="color:var(--text);font-size:14px;display:block;">Kaggle Learn</strong>
+        <p style="font-size:12px;color:var(--text3);margin-top:4px;">Hands-on 4-hour micro-courses in Pandas, Machine Learning, Feature Engineering, and GenAI.</p>
+      </a>
+      <a href="https://ocw.mit.edu" target="_blank" class="card" style="text-decoration:none;border-color:rgba(167,139,250,.3);padding:16px;">
+        <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:6px;">[MIT OCW]</div>
+        <strong style="color:var(--text);font-size:14px;display:block;">MIT OpenCourseWare</strong>
+        <p style="font-size:12px;color:var(--text3);margin-top:4px;">Complete MIT syllabi, lecture notes, video recordings, and problem sets free online.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TALENT DISCOVERY TAB ===== -->
+<section class="tab-content" id="tab-talent-discovery">
+  <div class="page-header">
+    <div><h1 class="page-title">Internal Talent Discovery</h1><p class="page-subtitle">Don't hire first :  discover and develop existing talent. Find who's closest to any target role.</p></div>
+  </div>
+  <div class="card" style="padding:20px;margin-bottom:24px">
+    <div class="talent-search-form">
+      <div class="form-group"><label>Required Role</label>
+        <select class="select-field" id="talentSearchRole">
+          <option value="ml-engineer">Machine Learning Engineer</option>
+          <option value="data-scientist">Data Scientist</option>
+          <option value="mlops-engineer">MLOps Engineer</option>
+          <option value="data-engineer">Data Engineer</option>
+          <option value="ai-researcher">AI Researcher</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Min Readiness: <span id="minReadinessVal">40%</span></label>
+        <input type="range" class="range-input" id="minReadiness" min="20" max="90" value="40" oninput="document.getElementById('minReadinessVal').textContent=this.value+'%'" />
+      </div>
+      <div class="form-group"><label>Department</label>
+        <select class="select-field" id="talentDept">
+          <option value="all">All Departments</option><option value="engineering">Engineering</option><option value="data">Data &amp; Analytics</option><option value="product">Product</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" onclick="searchTalent()">&#128269; Find Candidates</button>
+    </div>
+  </div>
+  <div class="talent-results-grid" id="talentResultsGrid"></div>
+  <div class="card" style="margin-top:24px">
+    <div class="card-header"><h2 class="card-title">Internal Transition Pipeline</h2><span class="badge badge-info">All Candidates &rarr; ML Engineer</span></div>
+    <div class="pipeline-table" id="pipelineTable"></div>
+  </div>
+</section>
+
+<!-- ===== SKILL TRENDS TAB ===== -->
+<section class="tab-content" id="tab-skill-trends">
+  <div class="page-header"><div><h1 class="page-title">Future Skill Intelligence</h1><p class="page-subtitle">Historical demand analysis to detect emerging skills before they become critical gaps</p></div></div>
+  <div class="trends-grid">
+    <div class="card card-wide">
+      <div class="card-header"><h2 class="card-title">Skill Demand Trend (Illustrative :  relative job posting frequency)</h2>
+        <select class="select-sm" id="trendCategory" onchange="renderFullTrendChart()">
+          <option value="ai-ml">AI / ML</option><option value="cloud">Cloud &amp; DevOps</option><option value="data">Data Engineering</option><option value="security">Cybersecurity</option>
+        </select>
+      </div>
+      <canvas id="fullTrendChart" height="260"></canvas>
+    </div>
+    <div class="card"><div class="card-header"><h2 class="card-title">Trending Up </h2></div><div class="trending-list" id="trendingUpList"></div></div>
+    <div class="card"><div class="card-header"><h2 class="card-title">Declining Skills </h2></div><div class="trending-list" id="trendingDownList"></div></div>
+    <div class="card card-wide"><div class="card-header"><h2 class="card-title">Current Demand Snapshot &#8212; % of ML/Data Job Postings</h2></div><div class="demand-bars" id="demandBars"></div></div>
+  
+    <!-- LinkedIn & Stack Overflow Job Market Intelligence -->
+    <div class="card card-wide market-jobs-section">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">Live Tech Job Market Intelligence</h2>
+          <p style="font-size:12px;color:var(--text3);margin-top:2px;">Real-time hiring index synthesized from <strong>LinkedIn Economic Graph</strong> &amp; <strong>Stack Overflow Developer Survey 2024</strong></p>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <span class="badge badge-brand">142,850+ Active Postings</span>
+          <span class="badge badge-success">Updated 2024</span>
+        </div>
+      </div>
+
+      <div class="market-intel-grid">
+        <div class="market-stat-card">
+          <div class="market-stat-source source-linkedin">LinkedIn Economic Graph</div>
+          <div class="market-stat-value">142,850+</div>
+          <div class="market-stat-sub">Active Indian Tech Postings</div>
+          <div class="market-stat-delta">+14.2% MoM Velocity</div>
+        </div>
+        <div class="market-stat-card">
+          <div class="market-stat-source source-linkedin">LinkedIn Fastest Growing</div>
+          <div class="market-stat-value">+110.8%</div>
+          <div class="market-stat-sub">GenAI &amp; LLM Engineering</div>
+          <div class="market-stat-delta">Top Hiring: Bengaluru, Hyd</div>
+        </div>
+        <div class="market-stat-card">
+          <div class="market-stat-source source-stackoverflow">Stack Overflow 2024</div>
+          <div class="market-stat-value">79.2%</div>
+          <div class="market-stat-sub">Most Admired: Rust &amp; Python</div>
+          <div class="market-stat-delta">65,400+ Developer Responses</div>
+        </div>
+        <div class="market-stat-card">
+          <div class="market-stat-source source-combined">Cost Savings Engine</div>
+          <div class="market-stat-value">₹18.5L</div>
+          <div class="market-stat-sub">Saved per Internal Transition</div>
+          <div class="market-stat-delta">vs External Hiring Agency</div>
+        </div>
+      </div>
+
+      <!-- Real Verified Job Postings with Match Capability -->
+      <div style="margin-top:20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+          <h3 style="font-size:14px;font-weight:700;color:var(--text);letter-spacing:.02em;">Verified Market Job Openings   Click "Match With Profile" to Test Fit</h3>
+          <span style="font-size:12px;color:var(--text3);">Matches candidate from Skill Analyzer in real-time</span>
+        </div>
+        <div class="market-jobs-grid" id="marketJobsGrid">
+          <!-- Populated by renderMarketJobs() in app.js -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== WORKFORCE INTEL TAB ===== -->
+<section class="tab-content" id="tab-workforce-intel">
+  <div class="page-header">
+    <div><h1 class="page-title">Workforce Intelligence</h1><p class="page-subtitle">Organization-wide skill coverage, readiness scores, and HR decision support</p></div>
+    <div class="header-actions"><button class="btn btn-primary" onclick="showToast('Report generation coming soon in full version!','info')">&#8595; Download Report</button></div>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-primary"><div class="kpi-value">500</div><div class="kpi-label">Learners Evaluated</div><div class="kpi-trend kpi-up">Across 6 departments</div></div>
+    <div class="kpi-card kpi-success"><div class="kpi-value">67%</div><div class="kpi-label">AI Readiness</div><div class="kpi-trend kpi-up">+5% QoQ</div></div>
+    <div class="kpi-card kpi-warning"><div class="kpi-value">8</div><div class="kpi-label">Critical Gaps</div><div class="kpi-trend kpi-down">Improving</div></div>
+    <div class="kpi-card kpi-info"><div class="kpi-value">43</div><div class="kpi-label">Transition Ready</div><div class="kpi-trend kpi-up">Internal candidates</div></div>
+  </div>
+  <div class="workforce-grid">
+    <div class="card card-wide"><div class="card-header"><h2 class="card-title">Skill Coverage Matrix</h2><span class="badge badge-warning">Action Required</span></div><div class="coverage-table" id="coverageMatrix"></div></div>
+    <div class="card"><div class="card-header"><h2 class="card-title">Department Readiness</h2></div><div class="dept-readiness" id="deptReadiness"></div></div>
+    <div class="card">
+      <div class="card-header"><h2 class="card-title">Before vs. SkillBridge</h2></div>
+      <div class="comparison-table">
+        <div class="comparison-row header-row"><div class="comp-col">Traditional Approach</div><div class="comp-col highlighted">SkillBridge</div></div>
+        <div class="comparison-row"><div class="comp-col muted">New role &rarr; External hire</div><div class="comp-col highlighted">Analyze existing workforce &#10003;</div></div>
+        <div class="comparison-row"><div class="comp-col muted">Keyword resume matching</div><div class="comp-col highlighted">Semantic skill matching &#10003;</div></div>
+        <div class="comparison-row"><div class="comp-col muted">Generic training courses</div><div class="comp-col highlighted">Gap-driven roadmap &#10003;</div></div>
+        <div class="comparison-row"><div class="comp-col muted">Static job descriptions</div><div class="comp-col highlighted">Dynamic + emerging skills &#10003;</div></div>
+        <div class="comparison-row"><div class="comp-col muted">Slow ramp-up, high cost</div><div class="comp-col highlighted">Internal mobility first &#10003;</div></div>
+      </div>
+    </div>
+    <div class="card card-wide">
+      <div class="card-header"><h2 class="card-title">Evaluation Metrics (Planned)</h2><span class="badge badge-info">Evaluation Plan</span></div>
+      <div class="impact-metrics-grid">
+        <div class="impact-metric"><div class="impact-icon" style="background:rgba(0,194,168,.15)"><span style="font-size:20px">&#127919;</span></div><div><div class="impact-title">Skill Extraction</div><div class="impact-metric-val">Precision / Recall / F1</div><div class="impact-desc">NLP extraction accuracy vs. labeled ground truth</div></div></div>
+        <div class="impact-metric"><div class="impact-icon" style="background:rgba(59,130,246,.15)"><span style="font-size:20px">&#9989;</span></div><div><div class="impact-title">Skill Matching</div><div class="impact-metric-val">Precision@K / NDCG</div><div class="impact-desc">Ranking quality evaluated by domain experts</div></div></div>
+        <div class="impact-metric"><div class="impact-icon" style="background:rgba(245,158,11,.15)"><span style="font-size:20px"></span></div><div><div class="impact-title">Demand Forecasting</div><div class="impact-metric-val">MAE / RMSE</div><div class="impact-desc">Forecast accuracy vs. actual job posting data</div></div></div>
+        <div class="impact-metric"><div class="impact-icon" style="background:rgba(139,92,246,.15)"><span style="font-size:20px">&#128506;</span></div><div><div class="impact-title">Recommendations</div><div class="impact-metric-val">Relevance / Skill Coverage</div><div class="impact-desc">Learning path quality via gap closure rate</div></div></div>
+      </div>
+      <div class="disclaimer">* No cost or time-saving % is claimed until validated with real user study data.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DATASETS TAB ===== -->
+<section class="tab-content" id="tab-datasets">
+  <div class="page-header"><div><h1 class="page-title">Dataset Registry</h1><p class="page-subtitle">All data sources powering SkillBridge :  names, record counts, coverage, and licenses</p></div></div>
+  <div class="datasets-filter">
+    <button class="filter-btn active" data-filter="all" onclick="filterDatasets('all',this)">All</button>
+    <button class="filter-btn" data-filter="job" onclick="filterDatasets('job',this)">Job / Occupation</button>
+    <button class="filter-btn" data-filter="skill" onclick="filterDatasets('skill',this)">Skill Taxonomy</button>
+    <button class="filter-btn" data-filter="workforce" onclick="filterDatasets('workforce',this)">Workforce</button>
+    <button class="filter-btn" data-filter="trend" onclick="filterDatasets('trend',this)">Trend Data</button>
+  </div>
+  <div class="datasets-grid" id="datasetsGrid"></div>
+  <div class="card" style="margin-top:24px">
+    <div class="card-header"><h2 class="card-title">Data Relationship Map</h2></div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="data-flow">
+        <div class="data-flow-node node-source"><div class="node-icon">&#128203;</div><div class="node-label">Job Postings</div><div class="node-sub">O*NET &middot; ESCO &middot; LinkedIn</div></div>
+        <div class="data-flow-arrow">&rarr;</div>
+        <div class="data-flow-node node-process"><div class="node-icon">&#9881;</div><div class="node-label">NLP Pipeline</div><div class="node-sub">Extract &middot; Normalize &middot; Map</div></div>
+        <div class="data-flow-arrow">&rarr;</div>
+        <div class="data-flow-node node-output"><div class="node-icon">&#127919;</div><div class="node-label">Required Skills</div><div class="node-sub">Weighted &middot; Ranked</div></div>
+      </div>
+      <div class="data-flow">
+        <div class="data-flow-node node-source"><div class="node-icon">&#128196;</div><div class="node-label">Resumes / Profiles</div><div class="node-sub">Text &middot; Structured &middot; PDF</div></div>
+        <div class="data-flow-arrow">&rarr;</div>
+        <div class="data-flow-node node-process"><div class="node-icon">&#129302;</div><div class="node-label">Skill Extraction</div><div class="node-sub">LLM / NLP &middot; Embedding</div></div>
+        <div class="data-flow-arrow">&rarr;</div>
+        <div class="data-flow-node node-output"><div class="node-icon">&#128100;</div><div class="node-label">Candidate Skills</div><div class="node-sub">Proficiency &middot; Evidence</div></div>
+      </div>
+      <div class="data-flow">
+        <div class="data-flow-node node-source"><div class="node-icon">&#127959;</div><div class="node-label">Skill Taxonomy</div><div class="node-sub">O*NET &middot; ESCO &middot; Custom</div></div>
+        <div class="data-flow-arrow">&rarr;</div>
+        <div class="data-flow-node node-process"><div class="node-icon">&#128279;</div><div class="node-label">Graph / Embeddings</div><div class="node-sub">FAISS &middot; Sentence-BERT</div></div>
+        <div class="data-flow-arrow">&rarr;</div>
+        <div class="data-flow-node node-output"><div class="node-icon">&#128506;</div><div class="node-label">Skill Knowledge Graph</div><div class="node-sub">Relationships &middot; Hierarchy</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== METHODOLOGY TAB ===== -->
+<section class="tab-content" id="tab-methodology">
+  <div class="page-header"><div><h1 class="page-title">Methodology &amp; AI Architecture</h1><p class="page-subtitle">End-to-end technical pipeline :  click any stage to see details</p></div></div>
+  <div class="card" style="margin-bottom:24px">
+    <div class="card-header"><h2 class="card-title">8-Stage Intelligence Pipeline</h2><span class="badge badge-success">Build For Bharat 2.0</span></div>
+    <div class="method-pipeline">
+      <div class="method-stage" onclick="expandStage('problem')"><div class="method-stage-num">1</div><div class="method-stage-icon">&#127919;</div><div class="method-stage-title">Problem</div><div class="method-stage-sub">Workforce skill mismatch</div></div>
+      <div class="method-arrow">&darr;</div>
+      <div class="method-stage" onclick="expandStage('collect')"><div class="method-stage-num">2</div><div class="method-stage-icon">&#128230;</div><div class="method-stage-title">Collect Data</div><div class="method-stage-sub">Jobs + Skills + Talent</div></div>
+      <div class="method-arrow">&darr;</div>
+      <div class="method-stage" onclick="expandStage('clean')"><div class="method-stage-num">3</div><div class="method-stage-icon">&#129529;</div><div class="method-stage-title">Clean Data</div><div class="method-stage-sub">NLP + Normalization</div></div>
+      <div class="method-arrow">&darr;</div>
+      <div class="method-stage" onclick="expandStage('analyze')"><div class="method-stage-num">4</div><div class="method-stage-icon">&#128202;</div><div class="method-stage-title">Analyze</div><div class="method-stage-sub">Role &#8596; Skill &#8596; Talent</div></div>
+      <div class="method-arrow">&darr;</div>
+      <div class="method-stage" onclick="expandStage('build-ai')"><div class="method-stage-num">5</div><div class="method-stage-icon">&#129302;</div><div class="method-stage-title">Build AI</div><div class="method-stage-sub">NLP + Embeddings + ML</div></div>
+      <div class="method-arrow">&darr;</div>
+      <div class="method-stage" onclick="expandStage('insight')"><div class="method-stage-num">6</div><div class="method-stage-icon">&#128161;</div><div class="method-stage-title">Generate Insight</div><div class="method-stage-sub">Gaps + Priorities + Trends</div></div>
+      <div class="method-arrow">&darr;</div>
+      <div class="method-stage" onclick="expandStage('product')"><div class="method-stage-num">7</div><div class="method-stage-icon">&#128421;</div><div class="method-stage-title">Create Product</div><div class="method-stage-sub">SkillBridge Platform</div></div>
+      <div class="method-arrow">&darr;</div>
+      <div class="method-stage active-method" onclick="expandStage('impact')"><div class="method-stage-num">8</div><div class="method-stage-icon"></div><div class="method-stage-title">Impact</div><div class="method-stage-sub">Upskill &rarr; Redeploy &rarr; Grow</div></div>
+    </div>
+  </div>
+  <div id="stageDetails"></div>
+  <div class="card" style="margin-top:24px">
+    <div class="card-header"><h2 class="card-title">5 AI Components</h2><span class="badge badge-info">Core Engine</span></div>
+    <div class="ai-components-grid">
+      <div class="ai-component"><div class="ai-comp-num">1</div><div><div class="ai-comp-title">Skill Extraction</div><div class="ai-comp-desc">NLP / LLM pulls skills from resumes and job descriptions using Named Entity Recognition and fine-tuned transformers.</div><div class="ai-comp-tags"><span class="tag">SpaCy</span><span class="tag">Sentence-BERT</span><span class="tag">LLM</span></div></div></div>
+      <div class="ai-component"><div class="ai-comp-num">2</div><div><div class="ai-comp-title">Semantic Matching</div><div class="ai-comp-desc">Embeddings link equivalents :  "ML Engineer" &asymp; "Machine Learning Engineer". Uses cosine similarity on skill vectors.</div><div class="ai-comp-tags"><span class="tag">FAISS</span><span class="tag">pgvector</span><span class="tag">Cosine Similarity</span></div></div></div>
+      <div class="ai-component"><div class="ai-comp-num">3</div><div><div class="ai-comp-title">Skill Gap Engine</div><div class="ai-comp-desc">Weighted gap score: &Sigma; [Skill Importance &times; (Required  minus  Current Level)]. Normalized to 0 to 100 readiness scale.</div><div class="ai-comp-tags"><span class="tag">Scikit-learn</span><span class="tag">Weighted Scoring</span></div></div></div>
+      <div class="ai-component"><div class="ai-comp-num">4</div><div><div class="ai-comp-title">Recommendation Engine</div><div class="ai-comp-desc">Ranks skills to learn first based on gap importance, market demand, skill dependencies, and learning difficulty.</div><div class="ai-comp-tags"><span class="tag">Graph Analysis</span><span class="tag">Priority Scoring</span></div></div></div>
+      <div class="ai-component"><div class="ai-comp-num">5</div><div><div class="ai-comp-title">Future Skill Forecasting</div><div class="ai-comp-desc">Analyzes historical job and skill demand to flag rising skills. Uses time-series analysis on job posting frequencies.</div><div class="ai-comp-tags"><span class="tag">Time-Series</span><span class="tag">Prophet</span><span class="tag">ARIMA</span></div></div></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:24px">
+    <div class="card-header"><h2 class="card-title">Technology Stack</h2></div>
+    <div class="tech-stack-grid">
+      <div class="tech-item"><div class="tech-icon">&#127822;</div><div class="tech-name">Python</div><div class="tech-role">Core Backend</div></div>
+      <div class="tech-item"><div class="tech-icon">&#9889;</div><div class="tech-name">FastAPI</div><div class="tech-role">API Layer</div></div>
+      <div class="tech-item"><div class="tech-icon">&#129303;</div><div class="tech-name">Sentence-BERT</div><div class="tech-role">Embeddings</div></div>
+      <div class="tech-item"><div class="tech-icon">&#128300;</div><div class="tech-name">Scikit-learn</div><div class="tech-role">ML Models</div></div>
+      <div class="tech-item"><div class="tech-icon">&#128309;</div><div class="tech-name">React</div><div class="tech-role">Frontend</div></div>
+      <div class="tech-item"><div class="tech-icon">&#128024;</div><div class="tech-name">PostgreSQL</div><div class="tech-role">Database</div></div>
+      <div class="tech-item"><div class="tech-icon">&#128270;</div><div class="tech-name">FAISS</div><div class="tech-role">Vector Search</div></div>
+      <div class="tech-item"><div class="tech-icon">&#128378;</div><div class="tech-name">Neo4j</div><div class="tech-role">Knowledge Graph</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HELP TAB ===== -->
+<section class="tab-content" id="tab-help">
+  <div class="page-header"><div><h1 class="page-title">Help &amp; User Guide</h1><p class="page-subtitle">Learn how to use every feature of SkillBridge</p></div></div>
+  <div class="help-grid">
+    <div class="help-sidebar"><div class="help-toc">
+      <div class="toc-section">QUICK START</div>
+      <div class="toc-link active" onclick="scrollToHelp('hgs',event)">Getting Started</div>
+      <div class="toc-link" onclick="scrollToHelp('hanalyzer',event)">Skill Analyzer</div>
+      <div class="toc-link" onclick="scrollToHelp('hgap',event)">Gap Analysis</div>
+      <div class="toc-section">FEATURES</div>
+      <div class="toc-link" onclick="scrollToHelp('hroadmap',event)">Learning Roadmap</div>
+      <div class="toc-link" onclick="scrollToHelp('htalent',event)">Talent Discovery</div>
+      <div class="toc-link" onclick="scrollToHelp('htrends',event)">Skill Trends</div>
+      <div class="toc-section">REFERENCE</div>
+      <div class="toc-link" onclick="scrollToHelp('hscoring',event)">Scoring Algorithm</div>
+      <div class="toc-link" onclick="scrollToHelp('hdatasets',event)">Datasets</div>
+      <div class="toc-link" onclick="scrollToHelp('hfaq',event)">FAQ</div>
+    </div></div>
+    <div class="help-content-area">
+      <div class="help-section" id="hgs"><h2> Getting Started</h2><p>SkillBridge is an AI-powered workforce intelligence platform built for <strong>Build For Bharat 2.0</strong> by <strong>Code_Hustlers</strong>. It converts workforce data into actionable decisions through a Problem &rarr; Data &rarr; AI &rarr; Insight &rarr; Product &rarr; Impact pipeline.</p>
+      <div class="help-steps">
+        <div class="help-step"><div class="step-num">1</div><div class="step-content"><strong>Analyze a Resume</strong><p>Go to <em>Skill Analyzer</em>, paste text, click "Analyze with AI" to extract and categorize skills.</p></div></div>
+        <div class="help-step"><div class="step-num">2</div><div class="step-content"><strong>Run Gap Analysis</strong><p>In <em>Gap Analysis</em>, rate your current skills and calculate a weighted readiness score for any target role.</p></div></div>
+        <div class="help-step"><div class="step-num">3</div><div class="step-content"><strong>Generate a Roadmap</strong><p>In <em>Learning Roadmap</em>, select your target role and current level for a 12-week upskilling plan.</p></div></div>
+        <div class="help-step"><div class="step-num">4</div><div class="step-content"><strong>Discover Internal Talent</strong><p>In <em>Talent Discovery</em>, search for employees ready to transition into any target role.</p></div></div>
+      </div></div>
+      <div class="help-section" id="hanalyzer"><h2>&#128300; Skill Analyzer</h2><p>Extracts structured skills from free-form text using NLP and LLM-based techniques, then maps them to a canonical skill taxonomy.</p>
+      <div class="help-callout"><strong>Input formats:</strong> Resume text, Job Descriptions, LinkedIn profiles, skill summaries</div>
+      <p><strong>Pipeline:</strong> Text &rarr; NLP/LLM &rarr; Skill Entities &rarr; Canonical Mapping &rarr; Skill Profile &rarr; Role Match Score</p>
+      <div class="help-tip"><strong>&#128161; Tip:</strong> Use "Quick load" buttons to see demo output instantly.</div></div>
+      <div class="help-section" id="hgap"><h2>&#128202; Gap Analysis</h2><p>Uses a weighted scoring formula to calculate how ready an employee is for a target role.</p>
+      <div class="formula-box">Gap Score = &Sigma; [Skill Weight &times; (Required Level  minus  Current Level)] / Max Possible</div>
+      <div class="help-callout warning"><strong> Note:</strong> The readiness % is a model-derived indicator, not an objective qualification measure.</div>
+      <p><strong>Gap categories:</strong></p><ul><li><strong>Critical:</strong> Weighted gap &gt; 60%</li><li><strong>High:</strong> 40 to 60%</li><li><strong>Medium:</strong> 20 to 40%</li><li><strong>Low:</strong> &lt; 20%</li></ul></div>
+      <div class="help-section" id="hroadmap"><h2>&#128506; Learning Roadmap</h2><p>Generates a personalized week-by-week upskilling plan based on: skill dependencies (learn PyTorch before MLOps), gap priority (critical gaps first), available time (hours/week), and market demand.</p>
+      <p>Each roadmap ends with a <strong>capstone project</strong> that covers multiple skill gaps in a single build exercise.</p></div>
+      <div class="help-section" id="htalent"><h2>&#128270; Talent Discovery</h2><p>Analyzes your existing workforce to rank internal candidates for any target role. The system: loads employee skill profiles, computes semantic similarity to the required skill set, ranks candidates by readiness score, and shows individual gaps and upskilling effort.</p></div>
+      <div class="help-section" id="htrends"><h2> Skill Trends</h2><p>Analyzes historical job posting data to identify emerging and declining skill demand. Trends represent demand patterns :  forecasts are demand indicators, not guaranteed employment outcomes.</p></div>
+      <div class="help-section" id="hscoring"><h2>&#129518; Scoring Algorithm Reference</h2>
+      <table class="help-table"><thead><tr><th>Skill</th><th>Importance</th><th>Required</th><th>Current</th><th>Gap Category</th></tr></thead><tbody>
+        <tr><td>Python</td><td>20%</td><td>4</td><td>4</td><td style="color:var(--success)">None</td></tr>
+        <tr><td>SQL</td><td>10%</td><td>3</td><td>3</td><td style="color:var(--success)">None</td></tr>
+        <tr><td>PyTorch</td><td>20%</td><td>3</td><td>0</td><td style="color:var(--danger)">High</td></tr>
+        <tr><td>Docker</td><td>10%</td><td>3</td><td>1</td><td style="color:var(--warning)">Medium</td></tr>
+        <tr><td>AWS</td><td>15%</td><td>3</td><td>0</td><td style="color:var(--danger)">High</td></tr>
+        <tr><td>MLOps</td><td>20%</td><td>3</td><td>0</td><td style="color:#DC2626">Critical</td></tr>
+        <tr><td>NLP</td><td>5%</td><td>2</td><td>0</td><td style="color:var(--warning)">Medium</td></tr>
+      </tbody></table>
+      <div class="formula-box">Illustrative Role Readiness: ~61% (model-derived indicator)</div></div>
+      <div class="help-section" id="hdatasets"><h2>&#128194; Datasets Used</h2>
+      <table class="help-table"><thead><tr><th>Dataset</th><th>Type</th><th>Records</th><th>License</th></tr></thead><tbody>
+        <tr><td>O*NET</td><td>Occupation/Skills</td><td>900+ occupations</td><td>Public Domain</td></tr>
+        <tr><td>ESCO v1.1</td><td>Skill Taxonomy</td><td>13,890 skills</td><td>CC BY 4.0</td></tr>
+        <tr><td>LinkedIn Postings (Kaggle)</td><td>Job Market</td><td>33,000+ records</td><td>CC0 / Research</td></tr>
+        <tr><td>SO Dev Survey</td><td>Skill Trends</td><td>70,000+ responses</td><td>ODbL</td></tr>
+        <tr><td>Resume Dataset (Kaggle)</td><td>Candidate Profiles</td><td>2,400+ resumes</td><td>CC0</td></tr>
+      </tbody></table></div>
+      <div class="help-section" id="hfaq"><h2>&#10067; FAQ</h2>
+      <div class="faq-list">
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What does the readiness % mean?</div><div class="faq-answer">It is a model-derived indicator showing skill proximity to a target role. NOT an objective qualification measure :  use it to guide development priorities.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How are skills extracted from resumes?</div><div class="faq-answer">Using NER + LLM-based extraction, mapped to canonical skill taxonomy (O*NET + ESCO). Synonyms are normalized: "ML" &rarr; "Machine Learning".</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this using live AI?</div><div class="faq-answer">This HTML prototype simulates the AI pipeline with realistic sample data. The actual AI components (Sentence-BERT, NLP extraction, Gap scoring) are described in the Methodology section.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Who built this?</div><div class="faq-answer">SkillBridge was built by <strong>Code_Hustlers</strong> for <strong>Build For Bharat 2.0</strong>, addressing the "Intelligent Talent and Workforce Ecosystem" problem statement.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How is this different from LinkedIn or other platforms?</div><div class="faq-answer">SkillBridge focuses on INTERNAL talent redeployment, uses weighted skill-gap scoring (not keyword matching), generates dependency-aware learning roadmaps, and forecasts emerging skill demand :  not just current job listings.</div></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT TAB ===== -->
+<section class="tab-content" id="tab-about">
+  <div class="page-header"><div><h1 class="page-title">About SkillBridge</h1><p class="page-subtitle">Build For Bharat 2.0 &middot; Problem: Intelligent Talent and Workforce Ecosystem</p></div></div>
+  <div class="about-hero card">
+    <div class="about-hero-content">
+      <div class="about-logo">
+        <div class="logo-icon" style="width:64px;height:64px;border-radius:18px">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M7 19 C7 12 12.5 7 19 7 C25.5 7 31 12 31 19" stroke="#00C2A8" stroke-width="3" stroke-linecap="round"/><path d="M11 24 C11 20.1 14.7 17 19 17 C23.3 17 27 20.1 27 24" stroke="#00C2A8" stroke-width="3" stroke-linecap="round"/><circle cx="19" cy="29" r="3.5" fill="#00C2A8"/></svg>
+        </div>
+        <h2 class="about-brand">SkillBridge</h2><p class="about-tagline">by Code_Hustlers</p>
+      </div>
+      <blockquote class="about-quote">"A company needs a new capability. Instead of immediately hiring externally, SkillBridge analyzes its existing workforce, identifies people closest to the required role, finds their exact skill gaps, predicts which skills matter, and creates a targeted path to make those employees role-ready."</blockquote>
+    </div>
+  </div>
+  <div class="about-grid">
+    <div class="card">
+      <div class="card-header"><h2 class="card-title">The Story</h2></div>
+      <div class="story-pipeline">
+        <div class="story-step"><span class="story-arrow">&rarr;</span><strong>Problem</strong>&nbsp;Workforce skill mismatch is growing</div>
+        <div class="story-step"><span class="story-arrow">&rarr;</span><strong>Data</strong>&nbsp;Jobs + Skills + Talent data</div>
+        <div class="story-step"><span class="story-arrow">&rarr;</span><strong>Skill Intelligence</strong>&nbsp;NLP + Embeddings</div>
+        <div class="story-step"><span class="story-arrow">&rarr;</span><strong>Gap Detection</strong>&nbsp;Weighted scoring engine</div>
+        <div class="story-step"><span class="story-arrow">&rarr;</span><strong>AI Recommendation</strong>&nbsp;Priority roadmap</div>
+        <div class="story-step"><span class="story-arrow">&rarr;</span><strong>Workforce Decision</strong>&nbsp;Internal mobility first</div>
+        <div class="story-step"><span class="story-arrow">&rarr;</span><strong>Impact</strong>&nbsp;Upskill &rarr; Redeploy &rarr; Grow</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2 class="card-title">Target Users</h2></div>
+      <div class="user-personas">
+        <div class="persona"><div class="persona-icon">&#128084;</div><div><div class="persona-role">HR / Workforce Managers</div><div class="persona-q">"Who can fill this role internally?"</div><div class="persona-q">"Which skills are missing across our workforce?"</div></div></div>
+        <div class="persona"><div class="persona-icon">&#128188;</div><div><div class="persona-role">Employees</div><div class="persona-q">"What skills am I missing?"</div><div class="persona-q">"What roles can I transition into?"</div></div></div>
+        <div class="persona"><div class="persona-icon">&#127891;</div><div><div class="persona-role">Universities &amp; Training Providers</div><div class="persona-q">"Are students industry-ready?"</div><div class="persona-q">"What should our curriculum prioritize?"</div></div></div>
+      </div>
+    </div>
+    <div class="card card-wide">
+      <div class="card-header"><h2 class="card-title">What Makes SkillBridge Different</h2></div>
+      <div class="diff-table">
+        <div class="diff-row diff-header"><div class="diff-col">Traditional Approach</div><div class="diff-col highlight-col">SkillBridge</div></div>
+        <div class="diff-row"><div class="diff-col">Matches candidates to jobs</div><div class="diff-col highlight-col">Maps people &rarr; skills &rarr; roles &#10003;</div></div>
+        <div class="diff-row"><div class="diff-col">Keyword matching</div><div class="diff-col highlight-col">Semantic skill matching &#10003;</div></div>
+        <div class="diff-row"><div class="diff-col">External hiring default</div><div class="diff-col highlight-col">Internal talent discovery first &#10003;</div></div>
+        <div class="diff-row"><div class="diff-col">Generic courses</div><div class="diff-col highlight-col">Gap-driven personalized roadmap &#10003;</div></div>
+        <div class="diff-row"><div class="diff-col">Static profile</div><div class="diff-col highlight-col">Dynamic skill profile + emerging skills &#10003;</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h2 class="card-title">Hackathon Details</h2></div>
+      <div class="hackathon-info">
+        <div class="info-row"><span class="info-label">Event</span><span class="info-value">Build For Bharat 2.0</span></div>
+        <div class="info-row"><span class="info-label">Team</span><span class="info-value">Code_Hustlers</span></div>
+        <div class="info-row"><span class="info-label">Problem Statement</span><span class="info-value">Intelligent Talent and Workforce Ecosystem</span></div>
+        <div class="info-row"><span class="info-label">Solution</span><span class="info-value">AI/ML-powered Skill Intelligence Platform</span></div>
+        <div class="info-row"><span class="info-label">Core Proposition</span><span class="info-value">Identify the gap. Prioritize the gap. Close the gap.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div><!-- end content-area -->
+
+<!-- ===== MODAL: VIEW FULL DUMMY RESUMES ===== -->
+<div class="sb-modal-backdrop" id="resumeViewModal">
+  <div class="sb-modal-box">
+    <button class="modal-close-btn" onclick="closeResumeModal()">&times;</button>
+    <div style="margin-bottom:20px;">
+      <h2 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:4px;font-family:'Outfit',sans-serif;">Candidate Resumes Registry</h2>
+      <p style="font-size:13px;color:var(--text3);">Select any candidate below to view their detailed background or load them into the AI analyzer</p>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:18px;overflow-x:auto;padding-bottom:6px;" id="modalCandidateTabs">
+      <!-- Tabs generated by JS -->
+    </div>
+    <div class="resume-preview" id="modalResumeContent">
+      <!-- Full resume content -->
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: JOB MATCH INTELLIGENCE ===== -->
+<div class="sb-modal-backdrop" id="jobMatchModal">
+  <div class="sb-modal-box" style="max-width:620px;">
+    <button class="modal-close-btn" onclick="closeJobMatchModal()">&times;</button>
+    <div id="jobMatchModalContent">
+      <!-- Content populated dynamically -->
+    </div>
+  </div>
+</div>
+
+</main>
+
+<div class="loading-overlay" id="loadingOverlay" style="display:none">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">Running AI Analysis...</div>
+</div>
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+// Fix scrollToHelp to pass event
+function scrollToHelp(id, e) {
+  var el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  document.querySelectorAll('.toc-link').forEach(function(l) { l.classList.remove('active'); });
+  if (e && e.target) e.target.classList.add('active');
+}
+</script>
+<script src="app.js"></script>
+</body>
+</html>

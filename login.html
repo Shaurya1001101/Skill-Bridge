@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>SkillBridge by Code Hustlers: Login</title>
+  <meta name="description" content="Sign in to SkillBridge, skill gap and learning platform by Code Hustlers."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --brand: #2563EB;
+      --brand-hover: #1D4ED8;
+      --bg: #0F172A;
+      --bg-surface: #1E293B;
+      --bg-input: #0F172A;
+      --border: #334155;
+      --border-focus: #3B82F6;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-subtle: #64748B;
+      --danger: #EF4444;
+      --radius: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      overflow-x: hidden;
+    }
+    .auth-wrapper {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+    .auth-left {
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 80px;
+      background: #0B1120;
+      border-right: 1px solid var(--border);
+    }
+    .auth-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .auth-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .auth-logo svg { width: 24px; height: 24px; }
+    .auth-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .auth-subtitle {
+      font-size: 12px;
+      color: var(--text-subtle);
+      font-weight: 500;
+    }
+    .hero-headline {
+      font-family: 'Outfit', sans-serif;
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+    .hero-headline span {
+      color: #60A5FA;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .feature-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3B82F6;
+      flex-shrink: 0;
+    }
+    .auth-right {
+      width: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 44px;
+      background: var(--bg-surface);
+    }
+    .back-home-link {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .back-home-link:hover { color: var(--text); }
+    .auth-form-header { margin-bottom: 28px; }
+    .auth-form-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .auth-form-sub { font-size: 14px; color: var(--text-muted); }
+    .demo-users {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 24px;
+    }
+    .demo-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: var(--text-subtle);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .demo-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #1E293B;
+      border: 1px solid var(--border);
+      transition: all .15s;
+    }
+    .demo-card:hover {
+      border-color: #3B82F6;
+      background: #243248;
+    }
+    .demo-card-left { display: flex; align-items: center; gap: 10px; }
+    .demo-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .demo-info strong { font-size: 13px; color: var(--text); display: block; }
+    .demo-info span { font-size: 12px; color: var(--text-subtle); }
+    .demo-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #334155;
+      color: #94A3B8;
+    }
+    .input-group { margin-bottom: 18px; }
+    .input-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      letter-spacing: .02em;
+    }
+    .input-wrapper { position: relative; }
+    .form-input {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 14px;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color .15s;
+      font-family: inherit;
+    }
+    .form-input:focus { border-color: var(--border-focus); }
+    .form-input::placeholder { color: var(--text-subtle); }
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 6px;
+    }
+    .toggle-password:hover { color: var(--text); }
+    .form-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      font-size: 13px;
+    }
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .remember-me input[type=checkbox] { accent-color: var(--brand); width: 14px; height: 14px; }
+    .forgot-link {
+      color: #60A5FA;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .forgot-link:hover { text-decoration: underline; }
+    .error-msg {
+      background: rgba(239,68,68,.1);
+      border: 1px solid rgba(239,68,68,.3);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #F87171;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .btn-login {
+      width: 100%;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px;
+      cursor: pointer;
+      transition: background .15s;
+      font-family: inherit;
+    }
+    .btn-login:hover { background: var(--brand-hover); }
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0;
+      color: var(--text-subtle);
+      font-size: 12px;
+    }
+    .auth-divider::before, .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .register-section {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .register-link {
+      color: #60A5FA;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      margin-left: 4px;
+    }
+    .register-link:hover { text-decoration: underline; }
+    .register-form { display: none; }
+    .back-btn {
+      background: none;
+      border: none;
+      color: #60A5FA;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 18px;
+      padding: 0;
+    }
+    .back-btn:hover { text-decoration: underline; }
+    .auth-footer {
+      margin-top: 36px;
+      font-size: 12px;
+      color: var(--text-subtle);
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .btn-spinner {
+      display: none;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media(max-width: 900px) {
+      .auth-left { display: none; }
+      .auth-right { width: 100%; padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-wrapper">
+  <!-- Left Hero Panel -->
+  <div class="auth-left">
+    <div class="auth-brand">
+      <div class="auth-logo">
+        <svg viewBox="0 0 30 30" fill="none">
+          <path d="M5 15 C5 9 9.5 5 15 5 C20.5 5 25 9 25 15" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M9 20 C9 17 11.7 15 15 15 C18.3 15 21 17 21 20" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="15" cy="24" r="2.5" fill="white"/>
+        </svg>
+      </div>
+      <div>
+        <div class="auth-title">SkillBridge</div>
+        <div class="auth-subtitle">by Code Hustlers</div>
+      </div>
+    </div>
+    <h1 class="hero-headline">Bridge your<br/><span>personal skill gap.</span></h1>
+    <p class="hero-desc">SkillBridge is built for everyone: students, self taught developers, and professionals. Analyze your skill gaps, practice with interactive LaTeX and code compilers, follow waypoint learning roadmaps, and master new fields.</p>
+    <div class="feature-list">
+      <div class="feature-item"><div class="feature-dot"></div>Personalized skill gap scoring for any target field or role</div>
+      <div class="feature-item"><div class="feature-dot"></div>Live LaTeX and Overleaf compiler, Python and SQL playgrounds</div>
+      <div class="feature-item"><div class="feature-dot"></div>Visual learning waypoints flowchart and step by step roadmap</div>
+      <div class="feature-item"><div class="feature-dot"></div>Curated free video tutorials and learning platform guides</div>
+    </div>
+  </div>
+
+  <!-- Right Auth Panel -->
+  <div class="auth-right">
+    <!-- LOGIN FORM -->
+    <div id="loginForm">
+      <a href="index.html" class="back-home-link">Back to SkillBridge Dashboard</a>
+      <div class="auth-form-header">
+        <h2 class="auth-form-title">Welcome back</h2>
+        <p class="auth-form-sub">Sign in to your SkillBridge account</p>
+      </div>
+
+      <div class="demo-users">
+        <div class="demo-label">Quick Demo Login: Click to Fill</div>
+        <div class="demo-card" onclick="fillDemo('user@skillbridge.io','User@2024')">
+          <div class="demo-card-left">
+            <div class="demo-avatar">U</div>
+            <div class="demo-info"><strong>User</strong><span>user@skillbridge.io</span></div>
+          </div>
+          <span class="demo-badge">User</span>
+        </div>
+      </div>
+
+      <div class="error-msg" id="errorMsg">Invalid email or password. Try the demo account above.</div>
+
+      <div class="input-group">
+        <label>EMAIL ADDRESS</label>
+        <div class="input-wrapper">
+          <input type="email" class="form-input" id="emailInput" placeholder="you@example.com" autocomplete="email"/>
+        </div>
+      </div>
+      <div class="input-group">
+        <label>PASSWORD</label>
+        <div class="input-wrapper">
+          <input type="password" class="form-input" id="passwordInput" placeholder="Enter your password" autocomplete="current-password"/>
+          <button class="toggle-password" onclick="togglePwd()" id="togglePwdBtn" type="button">Show</button>
+        </div>
+      </div>
+      <div class="form-options">
+        <label class="remember-me"><input type="checkbox" id="rememberMe" checked/> Remember me</label>
+        <a class="forgot-link" onclick="showForgot()">Forgot password?</a>
+      </div>
+      <button class="btn-login" id="loginBtn" onclick="doLogin()">
+        <span id="loginBtnText">Sign In to SkillBridge</span>
+        <div class="btn-spinner" id="loginSpinner"></div>
+      </button>
+      <div class="auth-divider">or</div>
+      <div class="register-section">Don't have an account? <a class="register-link" onclick="showRegister()">Create account</a></div>
+      <div style="text-align:center;margin-top:14px">
+        <a href="index.html" style="font-size:12px;color:var(--text-subtle);text-decoration:none">Continue as Guest Explorer</a>
+      </div>
+      <div class="auth-footer">Build For Bharat 2.0, Code Hustlers, Prototype Demo v1.0</div>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div id="registerForm" class="register-form">
+      <button class="back-btn" onclick="showLogin()" type="button">Back to Sign In</button>
+      <div class="auth-form-header">
+        <h2 class="auth-form-title">Create account</h2>
+        <p class="auth-form-sub">Join SkillBridge, open for all learners</p>
+      </div>
+      <div class="input-group">
+        <label>FULL NAME</label>
+        <div class="input-wrapper">
+          <input type="text" class="form-input" id="regName" placeholder="Your name"/>
+        </div>
+      </div>
+      <div class="input-group">
+        <label>EMAIL ADDRESS</label>
+        <div class="input-wrapper">
+          <input type="email" class="form-input" id="regEmail" placeholder="you@example.com"/>
+        </div>
+      </div>
+      <div class="input-group">
+        <label>PASSWORD</label>
+        <div class="input-wrapper">
+          <input type="password" class="form-input" id="regPassword" placeholder="Minimum 8 characters"/>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--text-subtle);margin-bottom:20px">By creating an account you agree to our Terms and Privacy Policy. This is a prototype demo: no real personal data is stored.</div>
+      <button class="btn-login" onclick="doRegister()">Create My Account</button>
+      <div class="auth-footer" style="margin-top:24px">Build For Bharat 2.0, Code Hustlers</div>
+    </div>
+  </div>
+</div>
+
+<script>
+var VALID_ACCOUNTS = [
+  {email:'user@skillbridge.io', password:'User@2024', name:'User', role:'User'},
+  {email:'demo@skillbridge.ai', password:'Demo1234', name:'User', role:'User'}
+];
+var registeredUsers = JSON.parse(localStorage.getItem('sb_users') || '[]');
+
+function fillDemo(email, pwd) {
+  document.getElementById('emailInput').value = email;
+  document.getElementById('passwordInput').value = pwd;
+}
+
+function togglePwd() {
+  var inp = document.getElementById('passwordInput');
+  var btn = document.getElementById('togglePwdBtn');
+  if (inp.type === 'password') { inp.type = 'text'; btn.textContent = 'Hide'; }
+  else { inp.type = 'password'; btn.textContent = 'Show'; }
+}
+
+function doLogin() {
+  var email = document.getElementById('emailInput').value.trim();
+  var pwd = document.getElementById('passwordInput').value;
+  var errEl = document.getElementById('errorMsg');
+  errEl.style.display = 'none';
+  if (!email || !pwd) { errEl.textContent = 'Please enter your email and password.'; errEl.style.display = 'block'; return; }
+  
+  var btnText = document.getElementById('loginBtnText');
+  var spinner = document.getElementById('loginSpinner');
+  btnText.style.display = 'none'; spinner.style.display = 'block';
+  
+  setTimeout(function() {
+    var allAccounts = VALID_ACCOUNTS.concat(registeredUsers);
+    var user = allAccounts.find(function(u) { return u.email.toLowerCase() === email.toLowerCase() && u.password === pwd; });
+    
+    // Always sign in as User
+    sessionStorage.setItem('sb_user', JSON.stringify({name:'User', email: email, role:'User'}));
+    if (document.getElementById('rememberMe').checked) {
+      localStorage.setItem('sb_remember', JSON.stringify({name:'User', email: email, role:'User'}));
+    }
+    window.location.href = 'index.html';
+  }, 600);
+}
+
+function doRegister() {
+  var name = document.getElementById('regName').value.trim() || 'User';
+  var email = document.getElementById('regEmail').value.trim();
+  var pwd = document.getElementById('regPassword').value;
+  if (!email || !pwd) { alert('Please fill in your email and password.'); return; }
+  if (pwd.length < 8) { alert('Password must be at least 8 characters.'); return; }
+  var newUser = {name:'User', email:email, password:pwd, role:'User'};
+  var all = JSON.parse(localStorage.getItem('sb_users') || '[]');
+  all.push(newUser);
+  localStorage.setItem('sb_users', JSON.stringify(all));
+  alert('Account created. You can now sign in with ' + email);
+  showLogin();
+  document.getElementById('emailInput').value = email;
+  document.getElementById('passwordInput').value = pwd;
+}
+
+function showRegister() {
+  document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('registerForm').style.display = 'block';
+}
+function showLogin() {
+  document.getElementById('loginForm').style.display = 'block';
+  document.getElementById('registerForm').style.display = 'none';
+}
+function showForgot() {
+  alert('Demo prototype: password recovery is disabled in this preview.\nPlease use the quick demo account above.');
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  var rem = localStorage.getItem('sb_remember');
+  if (rem) {
+    try { var u = JSON.parse(rem); document.getElementById('emailInput').value = u.email || ''; } catch(e){}
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && document.getElementById('loginForm').style.display !== 'none') doLogin();
+  });
+});
+</script>
+</body>
+</html>
